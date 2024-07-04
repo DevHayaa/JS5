@@ -166,7 +166,40 @@ for (var i = 0; i < A.length; i++) {
             }
         
 
+            // 15. Write a program to take password as an input from
+            // user. The password must qualify these requirements:
+            // a. It should contain alphabets and numbers
+            // b. It should not start with a number
+            // c. It must at least 6 characters long
+            // If the password does not meet above requirements,
+            // prompt the user to enter a valid password.
+            // For character codes of a-z, A-Z & 0-9, refer to ASCII
+            // table at the end of this document.
 
+            var password = prompt("Enter a password:")
+            if (password.length < 6) {
+                alert("Password must be atleast 6 characters long!")
+            } else {
+                if (password.charCodeAt(0) >= 48 && password.charCodeAt(0) <= 57) {
+                    alert("Password must not start from number")
+                } else {
+                    var hasAlphabet = false;
+                    var hasNumber = false;
+                    for (var i = 0; i < password.length; i++) {
+                        var charCode = password.charCodeAt(i)
+                        if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
+                            hasAlphabet = true;
+                        } else if (charCode >= 48 && charCode <= 57) {
+                            hasNumber = true;
+                        }
+                    }
+                    if (hasAlphabet && hasNumber) {
+                        alert("Valid Password")
+                    } else {
+                        alert("Password must contain both alphabet and numbers!")
+                    }
+                }
+            }
 
             // 16. Write a program to convert the following string to an
             // array using string split method.
